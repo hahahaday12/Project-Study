@@ -1,0 +1,15 @@
+/* 고정 폰트 */
+
+
+@font-face {
+  font-family: 'LeferiPoint-BlackA';
+  src: url('../font/LeferiPointBlack.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fonnt{
+    font-family: 'LeferiPoint-BlackA';
+    
+    
+}
