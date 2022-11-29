@@ -1,0 +1,203 @@
+/* 폰트 적용 */
+@font-face {
+  font-family: 'LeferiPoint-BlackA';
+  /* src: url('./fonts/LeferiPointBlack.otf') format('woff'); */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeferiPoint-White';
+  /* src: url('./fonts/LeferiPointWhite.otf') format('woff'); */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  width: 730px;
+  height: 800px;
+  margin: 0 auto;
+  background-color: white;
+  /* margin-top: 100px; */
+}
+
+.CalendarBox{
+  width: 730px;
+  height: 900px;
+  display: flex;
+  position: relative;
+  /* background-color: rgb(33, 146, 245); */
+  left: 100px;
+}
+
+/* 캘린더 크기 */
+.App {
+  margin-left: 70px;
+  width: 600px;
+}
+
+/* 캘린더 상단 여백 */
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-top: 60px;
+  background-color: white;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  background-color: white;
+}
+
+/* 월 타이틀 폰트/위치 조정 */
+.fc .fc-toolbar-title {
+  font-family: 'LeferiPoint-White';
+  position: relative;
+  left: 200px;
+
+}
+
+/* 버튼박스 레이아웃 */
+.btnWrap {
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 200px;
+  justify-content: space-between;
+}
+
+.iconBox {
+  width: 130px;
+  height: 60px;
+  /* background-color: #727272; */
+  border-radius: 30px;
+}
+
+.btnText {
+  font-size: 18px;
+}  
+
+/* 요일 폰트 */
+.fc .fc-col-header-cell-cushion {
+  font-family: 'LeferiPoint-White';
+}
+
+/* 날짜 폰트 */
+.fc .fc-daygrid-day-number {
+  font-family: 'LeferiPoint-White';
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* 기념일 폰트 */
+.fc-h-event .fc-event-title-container {
+  font-family: 'LeferiPoint-White';
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+/* 일요일 날짜 빨간색 */
+.fc-day-sun a {
+  color: red;
+}
+
+/* 토요일 날짜 파란색 */
+.fc-day-sat a {
+  color: blue;
+}
+
+/* 요일 행 */
+.fc .fc-scrollgrid-section table {
+  height: 50px;
+}
+
+.fc-col-header {
+  border-bottom: 1.5px solid rgb(139, 139, 139);
+}
+
+.fc .fc-scrollgrid-section-header > *, .fc .fc-scrollgrid-section-footer > * {
+  padding-bottom: 20px;
+}
+
+.fc th, .fc td {
+  vertical-align: middle;
+}
+
+
+/* border값 초기화 */
+.fc-theme-standard th, .fc-theme-standard td {
+  border: 0px;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border: 0px;
+}
+
+/* daygrid 높이 */
+.fc .fc-daygrid-day-frame {
+  height: 90px;
+}
+
+/* daygrid flex 초기화*/
+.fc .fc-daygrid-day-top {
+  display: block;
+}
+
+/* scrollbar 초기화 */
+.fc .fc-scroller-liquid-absolute {
+  position: relative;
+}
+
+/* event-day 테두리 초기화 */
+.fc-direction-ltr .fc-daygrid-event.fc-event-end, .fc-direction-rtl .fc-daygrid-event.fc-event-start {
+  background-color: rgb(255, 255, 255);
+  border-style: none;
+}
+
+.fc-button-group{
+  display: flex;
+  position: absolute;
+  bottom: 20px; 
+}
+
+.fc-prev-button.fc-button.fc-button-primary {
+   display: flex;
+   position: absolute;
+   right: 503px;
+   background-color: white;
+   border: 0;
+   outline: 0;
+   
+}
+
+.fc-next-button.fc-button.fc-button-primary{
+  display: flex;
+  position: absolute;
+  right: 80px;
+  background-color: white;
+  border: 0;
+  outline: 0;
+}
+
+.fc-icon.fc-icon-chevron-left{
+  color: #933838;
+}
+
+.fc-icon.fc-icon-chevron-right{
+  color: #933838;
+}
+
+.fc-today-button.fc-button.fc-button-primary{
+  background-color: rgb(255, 239, 200);
+  color: black;
+  border: 0;
+  outline: 0;
+}
+.fc-year-button.fc-button.fc-button-primary{
+  background-color: rgb(248, 189, 42);
+  color: black;
+  border: 0;
+  outline: 0;
+  position: relative;
+  left: 300px;
+}
+
