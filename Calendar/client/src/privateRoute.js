@@ -13,13 +13,12 @@ function PrivateRoute({component:Component, status:Status}){
         check = true; 
         axios.defaults.headers.common['Authorization'] = `Bearer ${access}`
     };
-
     console.log("PrivateRoute"+ check)
 
-    if(check){ //토큰값이 있을때
-        result = Component; // 상태값을 담아줌. 
+    if(check){ 
+        result = Component; 
     }else{
-        result = !Status ? result = <Navigate to='/'/> : result = Status; //onepage에 가기위한. 
+        result = !Status ? result = <Navigate to='/'/> : result = Status; 
     }
     return result;
 }
