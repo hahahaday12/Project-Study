@@ -2,41 +2,41 @@ import React from 'react'
 import styled from 'styled-components';
 import "../font/font.css"
 import { Link } from 'react-router-dom';
+import AuthService from '../service/auth';
+import Usertitle from '../service/user';
+import Sidebar from './sideBar';
 
 const Layout = ({ children }) => {
+    const logOut = () => {
+    AuthService.logout();
+  }
+
     return(
     <> 
         <ALL>
             <LeftContainer>
                 <Link to="/">
-                    
                     <img src= './img/Life Calander_logo.png' alt="logoimg"/>
-                    
                     <p>Life</p>
                     <p>Calendar</p>
                 </Link>
-
             <NavWrap>
-                
+                <Sidebar/>
             </NavWrap>
             </LeftContainer>
-
-
             <HeaderBox>
-                
+                <Usertitle/>
                     <LogoutBox>
-                        <p><a href='/'>Logout</a></p>
+                        <p><a href='/'onClick={logOut}>Logout</a></p>
                     </LogoutBox>
             </HeaderBox>
-
             <RightContainer>
                 <div className="content"> {children} </div>
             </RightContainer>
-
         </ALL>
     </>
     )
-}
+};
 export default Layout;
 
 // 전체적으로 들어가야할  공통 레이아웃 
