@@ -1,5 +1,6 @@
 import Layout from "../Layout/layout"
 import BuketList from "./buketlist/buket"
+import TodoListForm from "./todolist/todolistForm";
 import styled from "styled-components";
 
 
@@ -8,6 +9,7 @@ const Fourpage = () => {
     <>
       <Layout>
         <ListWrap>
+          <TodoListForm/>
           <BuketList/>
         </ListWrap>
       </Layout>
