@@ -7,7 +7,7 @@ import Onepage from './1Page';
 import TwoPage from './2Page';
 import ThirdPage from './3Page';
 import Fourpage from './4Page';
-
+import Fivepage from './5Page';
 
 
 function App() {
@@ -27,6 +27,9 @@ function App() {
         
         <Route path="/fourpage" element={
             <PrivateRoute component={<Fourpage/>}/>
+          }/>
+        <Route path="/fivepage" element={
+            <PrivateRoute component={<Fivepage/>} />
           }/>
       </Routes>
     </RecoilRoot>
