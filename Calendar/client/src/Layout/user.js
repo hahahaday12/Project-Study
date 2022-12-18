@@ -26,5 +26,4 @@ const P = styled.div`
   width: 600px;
   text-align: center;
   font-size: 30px;
-  font-family: "Gaegu", serif;
 `
