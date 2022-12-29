@@ -14,4 +14,4 @@ export const emailCheck = (mail) =>{
 }
 
 // 공통 url 
-export const API_URL = "http://kai.dahyeon.us:10200";
+export const API_URL = "http://localhost:3008";
