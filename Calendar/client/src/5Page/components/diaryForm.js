@@ -50,7 +50,7 @@ const DiaryForm = () => {
     const tmpColor = { ...recoilColor };
     setColorPeeker(tmpColor.color);
     let defaultDate = new Date();
-    if(ViewData.date != ""){
+    if(ViewData.date !== ""){
         defaultDate = ViewData.date;
     }
     setViewData({
@@ -60,8 +60,16 @@ const DiaryForm = () => {
     })
   },[recoilColor] )
 
-  const search = () => {
-    axios.get(API_URL+ '/diary')
+  const search = (params) => {
+
+    let date = null;
+    if(params){
+      date = params;
+    }else{
+      date = new Date(ViewData.date);
+    }
+
+    axios.get(API_URL+ '/diary?year='+String(date.getFullYear())+'&month='+String(date.getMonth()+1))
     .then((response) => {
     setData(response.data.data);
     })
@@ -83,6 +91,17 @@ const DiaryForm = () => {
       onClick={onClick} ref={ref}>
         {value}
     </Datebutton> ));
+
+
+  const getChangeDate = (date) => {
+    console.log("change")
+    console.log(date);
+    setViewData({
+      ...ViewData,
+      'date': new Date(date),
+    })
+    search(new Date(date));
+  };
 
   const getChangeValue = (e) => {
     const{name, value} = e.target;
@@ -197,10 +216,7 @@ const DiaryForm = () => {
               value={date}
               dateFormat="yyyy-MM-dd"
               selected={ViewData.date}
-              onChange={(date) => setViewData({
-              ...ViewData,
-              'date': date
-              })}
+              onChange={getChangeDate}
               customInput={<DatePick/>}
             />
           </Datebox>
