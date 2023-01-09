@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { last } from 'rxjs';
 import * as crypto from 'crypto';
+import moment from 'moment-timezone';
 
 @Injectable()
 export class GlobalService {
@@ -31,48 +31,65 @@ export class GlobalService {
     if (!month) {
       month = '12';
     }
-    const lastDay = new Date(parseInt(year), parseInt(month), 0);
+    let lastDay = new Date(parseInt(year), parseInt(month), 0);
 
     let startDate: Date, endDate: Date;
+
     if (status == 'year/month/day') {
       console.log('year/month/day');
       startDate = new Date(
-        Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), -18, 0, 0),
+        Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), -9, 0, 0),
       );
 
       endDate = new Date(
-        Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day), 5, 59, 59),
+        Date.UTC(
+          parseInt(year),
+          parseInt(month) - 1,
+          parseInt(day),
+          14,
+          59,
+          59,
+        ),
       );
     }
 
     if (status == 'year/month') {
       //console.log('year/month');
-      startDate = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, 1));
+      startDate = new Date(
+        Date.UTC(parseInt(year), parseInt(month) - 1, 1, -18, 0, 0),
+      );
       endDate = new Date(
-        Date.UTC(parseInt(year), parseInt(month), -1, lastDay.getDate(), 5, 59),
+        Date.UTC(
+          parseInt(year),
+          parseInt(month) - 1,
+          lastDay.getDate(),
+          5,
+          59,
+          59,
+        ),
       );
     }
 
     if (status == 'year') {
       //console.log('year/');
-      startDate = new Date(Date.UTC(parseInt(year), 0, 1));
-      endDate = new Date(Date.UTC(parseInt(year), 12, 0));
+      startDate = new Date(
+        Date.UTC(parseInt(year), parseInt(month), 0, -18, 0, 0, 0),
+      );
+      endDate = new Date(
+        Date.UTC(parseInt(year), 11, lastDay.getDate(), 5, 59, 59),
+      );
     }
 
     startDate = this.ChangeDate(startDate.toISOString());
     endDate = this.ChangeDate(endDate.toISOString());
-    console.log(startDate);
-    console.log(endDate);
 
+    console.log('startDate' + startDate);
+    console.log('endDate)' + endDate);
     return { startDate, endDate };
   }
 
   public ChangeDate(utc: string) {
-    console.log('start');
-    console.log(utc);
-    console.log(new Date(new Date(utc).getTime() + 540 * 60 * 1000));
-    console.log('end');
-
-    return new Date(new Date(utc).getTime() + 540 * 60 * 1000);
+    console.log(new Date(new Date(utc).getTime() + 3600000 * 9));
+    return new Date(new Date(utc).getTime() + 3600000 * 9);
   }
 }
